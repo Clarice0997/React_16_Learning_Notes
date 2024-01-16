@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test1"></div>
+
+<script src="../modules/react.development.js" type="text/javascript"></script>
+<script src="../modules/react-dom.development.js" type="text/javascript"></script>
+<script src="../modules/babel.js" type="text/javascript"></script>
+<script src="../modules/axios.js" type="text/javascript"></script>
+
+<script type="text/babel">
+  // 数组渲染，活用 ES 语法
+  const arr = [1, 2, 3, 4]
+  let dom = arr.map(item => <h1>{item}</h1>)
+  ReactDOM.render(dom, document.querySelector('#test1'))
+</script>
+
+</body>
+</html>

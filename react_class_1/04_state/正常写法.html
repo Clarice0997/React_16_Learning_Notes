@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test1"></div>
+
+    <script src="../modules/react.development.js" type="text/javascript"></script>
+    <script src="../modules/react-dom.development.js" type="text/javascript"></script>
+    <script src="../modules/prop-types.js" type="text/javascript"></script>
+    <script src="../modules/babel.js" type="text/javascript"></script>
+    <script src="../modules/axios.js" type="text/javascript"></script>
+
+    <script type="text/babel">
+      // ES6 类组件
+      class Component1 extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            isLike:true
+          }
+          // 绑定到 this
+          this.clickHandler = this.clickHandler.bind(this)
+        }
+        // 点击事件
+        clickHandler(){
+          console.log(this)
+          const isLike = !this.state.isLike
+          this.setState({isLike})
+        }
+        render(){
+          return <h2 onClick={this.clickHandler}>{this.state.isLike ? 1 : 2}</h2>
+        }
+      }
+
+      // 渲染虚拟 DOM
+      ReactDOM.render(<Component1/>,document.getElementById('test1'))
+    </script>
+
+</body>
+</html>
